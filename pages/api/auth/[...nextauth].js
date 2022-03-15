@@ -11,7 +11,7 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
-  secret: process.env.JWT_SECRET,
+  secret: "fra1::xfcwq-1642712414117-2a30d2e98ebf",
   adapter: MongoDBAdapter(clientPromise),
   pages: {
     signIn: "/home",
@@ -19,4 +19,4 @@ export default NextAuth({
   session: {
     strategy: "jwt",
   },
-});
+}); 

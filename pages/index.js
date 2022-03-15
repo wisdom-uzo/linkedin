@@ -11,9 +11,10 @@ import Modal from '../components/Modal';
 import { useRecoilState } from 'recoil';
 import { modalState, modalTypeState } from '../atoms/modelAtom';
 import { connectToDatabase } from '../Utils/mongodb';
+import Widgets from '../components/Widgets';
 
 
-export default function Home({posts}) {
+export default function Home({posts, news}) {
 
   
   const [modalOpen, setModalOpen] = useRecoilState(modalState);
@@ -43,6 +44,7 @@ export default function Home({posts}) {
             <Sidebar />
             <Feed posts={posts}/>
         </div>
+        <Widgets news={news} />
 
         <AnimatePresence>
           {modalOpen && (
@@ -50,7 +52,6 @@ export default function Home({posts}) {
           )}
         </AnimatePresence>
 
-        <div className=""></div>
       </main>
     </div>
   )
@@ -66,7 +67,7 @@ export async function getServerSideProps(context) {
           permanent:false,
           destination:'/home',
         }
-      }
+      } 
     }
 
     // get post from SSR
@@ -78,8 +79,16 @@ export async function getServerSideProps(context) {
       .sort({timestamp: -1})
       .toArray()
 
+    // Get Google News
+    // const results = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${process.env.NEWSAPI_KEY}`)
+    //   .then(res => res.json())
+
+    const results = await fetch(`https://newsapi.org/v2/everything?q=tesla&from=2022-02-15&sortBy=publishedAt&apiKey=${process.env.NEWSAPI_KEY}`)
+    .then(res => res.json())
+
     return {
       props: {
+        news: results.articles,
         session,
         posts: posts.map((post) => ({
           _id: post._id.toString(),

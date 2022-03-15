@@ -13,6 +13,7 @@ import CommentOutlinedIcon from "@mui/icons-material/CommentOutlined";
 import { modalState, modalTypeState } from "../atoms/modelAtom";
 import TimeAgo from "timeago-react";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 
 function Post ({post, modalPost}) {
@@ -27,6 +28,11 @@ function Post ({post, modalPost}) {
     
     const truncate = (string, n) =>
     string?.length > n ? string.substr(0, n - 1) + "...see more" : string;
+
+
+
+   
+  
 
 
     const deletePost = async () => {
@@ -113,8 +119,8 @@ function Post ({post, modalPost}) {
                         <ThumbUpOffAltRoundedIcon className="-scale-x-100" />
                         ) : (
                         <ThumbUpOffAltOutlinedIcon className="-scale-x-100" />
-                        )}
-
+                        )} 
+  
                         <h4>Like</h4>
                     </button>
                 )}
