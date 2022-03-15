@@ -5,7 +5,7 @@ import ThumbUpOffAltOutlinedIcon from "@mui/icons-material/ThumbUpOffAltOutlined
 import ThumbUpOffAltRoundedIcon from "@mui/icons-material/ThumbUpOffAltRounded";
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import { useRecoilState } from "recoil";
-import { handlePostState, getPostState } from "../atoms/postAtom";
+import { handlePostState, getPostState } from "../atoms/PostAtom";
 import { useState } from "react";
 import DeleteRoundedIcon from "@mui/icons-material/DeleteRounded";
 import ReplyRoundedIcon from "@mui/icons-material/ReplyRounded";
