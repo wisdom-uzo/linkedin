@@ -2,7 +2,7 @@ import { useSession } from "next-auth/react";
 import { useState } from "react";
 import { useRecoilState } from "recoil";
 import { modalState } from "../atoms/modelAtom";
-import { handlePostState } from "../atoms/postAtom";
+import { handlePostState } from "../atoms/PostAtom";
 
 function Form() {
   const [input, setInput] = useState("");

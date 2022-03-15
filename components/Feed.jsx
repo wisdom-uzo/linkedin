@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useRecoilState } from "recoil"
-import { handlePostState, useSSRPostsState } from "../atoms/postAtom"
+import { handlePostState, useSSRPostsState } from "../atoms/PostAtom"
 import Input from "./Input"
 import Post from "./Post"
 
